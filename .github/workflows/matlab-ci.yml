@@ -1,0 +1,32 @@
+name: Run MATLAB Tests
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4  # Gets your repo files
+
+    - name: Set Up MATLAB
+      uses: matlab-actions/setup-matlab@v1  # MATLAB GitHub Action
+
+    - name: Run MATLAB Script
+      uses: matlab-actions/run-command@v1
+      with:
+        command: |
+          results = runtests;
+          assert(all([results.Passed]), 'Some tests failed.');
+
+    - name: Run MATLAB Script (if needed)
+      uses: matlab-actions/run-command@v1
+      with:
+        command: run('your_script.m')  # Replace with your MATLAB script

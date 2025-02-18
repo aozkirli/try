@@ -1,9 +1,0 @@
-Ozkirli, A., & Pascucci, D. (2023). State-dependent serial dependence in perceptual decisions. bioRxiv, 2023-10.
-
-https://doi.org/10.1101/2023.10.19.563128
-
-Data available from the corresponding author.
-
-
-Experiment 1 and 2
-Condition(s) to include: All, uncertainty coded by condition.

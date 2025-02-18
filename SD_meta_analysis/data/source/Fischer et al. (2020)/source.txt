@@ -1,9 +1,0 @@
-Fischer, C., Czoschke, S., Peters, B., Rahm, B., Kaiser, J., & Bledowski, C. (2020). Context information supports serial dependence of multiple visual objects across memory episodes. Nature communications, 11(1), 1932.
-
-https://doi.org/10.1038/s41467-020-15874-w
-
-Data available at: https://osf.io/azpwy
-
-
-Experiment from 1 to 4
-Condition(s) to include: All, target-related SD

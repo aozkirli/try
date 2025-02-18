@@ -1,9 +1,0 @@
-Blondé, P., Kristjánsson, Á., & Pascucci, D. (2023). Tuning perception and decisions to temporal context. Iscience, 26(10).
-
-https://doi.org/10.1016/j.isci.2023.108008
-
-Data available at: https://doi.org/10.5281/zenodo.8109972
-
-
-Experiment 2 (only the uniform condition), Exp 1 excluded due to discrete delta bins without 90°
-Condition(s) to include: the uniform condition, the 'stable' condition in exp 2 is excluded in read_data

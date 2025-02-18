@@ -1,9 +1,0 @@
-Kondo, A., Murai, Y., & Whitney, D. (2022). The test-retest reliability and spatial tuning of serial dependence in orientation perception. Journal of Vision, 22(4), 5-5.
-
-https://doi.org/10.1167/jov.22.4.5
-
-Data available at: by the corresponding authors
-
-
-Experiment 1 and 2 (two groups of participants performing 4 conditions, 2 each) 
-Condition(s) to include: Four, code for separate conditions

@@ -1,9 +1,0 @@
-Abreo, S., Gergen, A., Gupta, N., & Samaha, J. (2023). Effects of satisfying and violating expectations on serial dependence. Journal of vision, 23(2), 6-6.
-
-https://doi.org/10.1167/jov.23.2.6
-
-Data available at: https://osf.io/kpjtb/
-
-
-Experiment 1
-Condition(s) to include: Random sequence only

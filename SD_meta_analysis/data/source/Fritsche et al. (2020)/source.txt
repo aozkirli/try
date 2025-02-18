@@ -1,9 +1,0 @@
-Fritsche, M., Spaak, E., & De Lange, F. P. (2020). A Bayesian and efficient observer model explains concurrent attractive and repulsive history biases in visual perception. Elife, 9, e55389.
-
-https://doi.org/10.7554/eLife.55389
-
-Data available at: https://doi.org/10.34973/hcea-dt25
-
-
-Experiment from 1 to 3
-Condition(s) to include: All but separated.

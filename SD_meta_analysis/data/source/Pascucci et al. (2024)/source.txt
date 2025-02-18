@@ -1,9 +1,0 @@
-Pascucci, D., Roinishvili, M., Chkonia, E., Brand, A., Whitney, D., Herzog, M. H., & Manassi, M. (2024). Intact Serial Dependence in Schizophrenia: Evidence from an Orientation Adjustment Task. Schizophrenia Bulletin, sbae106.
-
-https://doi.org/10.1093/schbul/sbae106
-
-Data available from https://doi.org/10.1093/schbul/sbae106
-
-
-Experiment 1, only CNT (healthy control group).
-Condition(s) to include: All (trials after no response are excluded via nans already).

@@ -35,8 +35,3 @@ jobs:
         mkdir -p output
         cat new_files.txt | xargs -I {} mv "{}" output/ || true
 
-    - name: Upload Only Newly Created Files
-      uses: actions/upload-artifact@v3
-      with:
-        name: MATLAB-New-Results
-        path: output/

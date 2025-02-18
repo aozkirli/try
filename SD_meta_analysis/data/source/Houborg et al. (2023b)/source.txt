@@ -1,0 +1,9 @@
+Houborg, C., Pascucci, D., Tanrıkulu, Ö. D., & Kristjánsson, Á. (2023). The effects of visual distractors on serial dependence. Journal of Vision, 23(12), 1-1.
+
+https://doi.org/10.1167/jov.23.12.1
+
+Data available at: https://doi.org/10.5281/zenodo.7940513
+
+
+Experiment 1 and 2 
+Condition(s) to include: All, delta for previous target

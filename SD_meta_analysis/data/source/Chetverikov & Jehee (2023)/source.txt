@@ -1,0 +1,9 @@
+Chetverikov, A., & Jehee, J. F. (2023). Motion direction is represented as a bimodal probability distribution in the human visual cortex. Nature Communications, 14(1), 7634.
+
+https://doi.org/10.1038/s41467-023-43251-w
+
+Data available at: https://doi.org/10.34973/yk4k-tp41
+
+
+Experiment 1 (low and high motion coherence)
+Condition(s) to include: All, coherence coded by condition.

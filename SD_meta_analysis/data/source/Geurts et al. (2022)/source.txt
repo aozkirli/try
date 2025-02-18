@@ -1,0 +1,9 @@
+Geurts, L.S., Cooke, J.R.H., van Bergen, R.S. et al. Subjective confidence reflects representation of Bayesian probability in cortex. Nat Hum Behav 6, 294–305 (2022).
+
+https://doi.org/10.1038/s41562-021-01247-w
+
+Data available at: https://doi.org/10.34973/983b-a047
+
+
+Experiment 1 (only one)
+Condition(s) to include: All, confidence coded as condition.

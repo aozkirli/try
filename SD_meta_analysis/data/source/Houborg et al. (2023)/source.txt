@@ -1,0 +1,9 @@
+Houborg, C., Kristjánsson, Á., Tanrıkulu, Ö. D., & Pascucci, D. (2023). The role of secondary features in serial dependence. Journal of Vision, 23(5), 21-21.
+
+https://doi.org/10.1167/jov.23.5.21
+
+Data available from the corresponding author.
+
+
+Experiment 1 and 2 
+Condition(s) to include: All, delta for previous target

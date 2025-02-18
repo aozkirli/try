@@ -1,0 +1,35 @@
+Data documentation for the submitted manuscript: 'Context information supports serial dependence of multiple visual objects across memory episodes'
+
+Explanation 'XX_Data.txt' files
+Those files contain the raw data of all analyzed subjects in the corresponding experiment (ColorCue: Experiment 1, SerialPositionCue: Experiment 2, SimColCue: Experiment 3, SimPosCue: Experiment 4).
+Every row contains the data of a single trial. The data is organized in the following way: (numbers indicate column numbers)
+
+[1]  Subject number
+[2]  Session number
+[3]  Trial number (relative to the session)
+[4]  Direction of the first sequentially presented item (possible: 5° to 355°, in steps of 10°) (left item in Exp. 3 and 4)
+[5]  Direction of the second sequentially presented item (possible: 5° to 355°, in steps of 10°) (right item in Exp. 3 and 4)
+[6]  Direction difference of both presented items (between +/- 10° to 170°, in steps of 10°)
+[7]  Practice trial (1) or experimental trial (2) (only experimental trials included)
+[8]  Direction of the response line at response onset (0° to 159° in steps of 1°)
+[9]  Role of target item (more clockwise or counterclockwise oriented in relation to the non-target of the trial; 1 = cw, 2 = ccw)
+[10] Color first item (1 = red, 2 = green)
+[11] Color second item (1 = red, 2 = green)
+[12] Target (Exp. 1 & 2: 1 = first item, 2 = second item; Exp. 3 & 4: 1 = left item, 2 = right item)
+[13] Place holder (always '1', contains no information)
+[14] Entered motion direction (raw response in degrees, precision of 4 decimal places)
+[15] Raw response error (deviation between entered and asked motion direction in degree, precision of 4 decimal places; positive values: entered direction more clockwise than target direction)
+[16] Place holder (always '99', contains no information)
+[17] Response duration in seconds
+[18] Place holder (always '0', contains no information)
+[19] Number of direction changes of mouse movement during response
+[20] Place holder (always 1, contains no information)
+[21] Same of different item colors within a trial (1 = same, 2 = different)
+
+
+Explanation 'XX_CommonBreakTrials'
+Those files contain the trial numbers before which a common break trial occurred for the subject in each session (see 'Procedure' in the paper for a more detailed explanation') for all analyzed subjects in the corresponding experiment (ColorCue: Experiment 1, SerialPositionCue: Experiment 2, SimColCue: Experiment 3, SimPosCue: Experiment 4).
+Every row contains the data of a single subject. The data is organized in the following way: (numbers indicate column numbers)
+[1]  Subject Number
+[2]  Common break trial first session (relative to the whole experiment)
+[3]  Common break trial second session (relative to the whole experiment)

@@ -1,0 +1,9 @@
+Ceylan, G., Herzog, M. H., & Pascucci, D. (2021). Serial dependence does not originate from low-level visual processing. Cognition, 212, 104709.
+
+https://doi.org/10.1016/j.cognition.2021.104709
+
+Data available at: https://doi.org/10.5281/zenodo.4632855
+
+
+Experiment 1 and 2 
+Condition(s) to include: All, code for separate conditions (stim_type=1: low SF gabor)

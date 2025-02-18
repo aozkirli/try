@@ -1,0 +1,9 @@
+Sadil, P., Cowell, R. A., & Huber, D. E. (2024). The push–pull of serial dependence effects: Attraction to the prior response and repulsion from the prior stimulus. Psychonomic Bulletin & Review, 31(1), 259-273.
+
+https://doi.org/10.3758/s13423-023-02320-3
+
+Data available at: https://osf.io/w4kcj/
+
+
+Experiment 1 (only one)
+Condition(s) to include: only one.

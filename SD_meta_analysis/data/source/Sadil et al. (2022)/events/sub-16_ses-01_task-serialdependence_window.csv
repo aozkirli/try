@@ -1,0 +1,2 @@
+screenNumber,black,white,gray,background,TextFont,TextSize,TextStyle,TextColor,slack,multisample,view_distance_cm,oldRes,screen_w_cm,screen_h_cm,pointer,winRect_1,winRect_2,winRect_3,winRect_4,xCenter,yCenter,width,height,framerate,ifi,loadgamma,gamma
+0,0,1,0.5,0.5,Courier New,24,1,1,0.5,,60.96,,53.136,29.889,10,0,0,1920,1080,960,540,1920,1080,100.19503653608,0.00998053431159637,1,stimuli\gammaTable-asus.mat

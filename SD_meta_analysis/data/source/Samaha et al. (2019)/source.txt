@@ -1,0 +1,11 @@
+Samaha, J., Switzky, M., & Postle, B. R. (2019). Confidence boosts serial dependence in orientation estimation. Journal of vision, 19(4), 25-25.
+
+https://doi.org/10.1167/19.4.25
+
+Data available at: https://osf.io/6uczk/
+
+
+Experiment 1 (only one).
+Condition(s) to include: All, uncertainty coded by condition.
+
+NOTE: a cutoff of 25° (abs error) was required in the original ms to find SD

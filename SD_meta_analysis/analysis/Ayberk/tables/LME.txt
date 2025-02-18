@@ -1,0 +1,123 @@
+----------------------------------------------------------------------
+**********************************************************************
+----------------------------------------------------------------------
+ 
+Using polynomial estimates:
+ 
+
+<strong>Linear mixed-effects model fit by ML</strong>
+
+<strong>Model information:</strong>
+    Number of observations            2991
+    Fixed effects coefficients           3
+    Random effects coefficients       5334
+    Covariance parameters               19
+
+<strong>Formula:</strong>
+    ES ~ 1 + SI + (1 + SI | obsid) + (1 + SI | codenum) + (1 + SI | codenum:obsid)
+
+<strong>Model fit statistics:</strong>
+    AIC      BIC      LogLikelihood    Deviance
+    14215    14347    -7085.3          14171   
+
+<strong>Fixed effects coefficients (95% CIs):</strong>
+    Name                   Estimate    SE          tStat      DF      pValue        Lower       Upper  
+    {'(Intercept)'}          9.1203     0.54108     16.856    2988    5.7367e-61      8.0594     10.181
+    {'SI_mid'     }         0.85402    0.098996     8.6269    2988     1.007e-17     0.65992     1.0481
+    {'SI_ortho'   }        0.027591    0.081161    0.33995    2988       0.73392    -0.13155    0.18673
+
+<strong>Random effects covariance parameters (95% CIs):</strong>
+Group: obsid (732 Levels)
+    Name1                  Name2                  Type            Estimate    Lower      Upper  
+    {'(Intercept)'}        {'(Intercept)'}        {'std' }         3.0889      2.8789     3.3143
+    {'SI_mid'     }        {'(Intercept)'}        {'corr'}        0.95926     0.95241    0.96513
+    {'SI_ortho'   }        {'(Intercept)'}        {'corr'}        0.15795         NaN        NaN
+    {'SI_mid'     }        {'SI_mid'     }        {'std' }          0.386     0.25459    0.58523
+    {'SI_ortho'   }        {'SI_mid'     }        {'corr'}        0.43051         NaN        NaN
+    {'SI_ortho'   }        {'SI_ortho'   }        {'std' }        0.64701     0.41499     1.0088
+
+Group: codenum (49 Levels)
+    Name1                  Name2                  Type            Estimate     Lower       Upper  
+    {'(Intercept)'}        {'(Intercept)'}        {'std' }           3.6378        2.94     4.5011
+    {'SI_mid'     }        {'(Intercept)'}        {'corr'}          0.67293    0.028967    0.92215
+    {'SI_ortho'   }        {'(Intercept)'}        {'corr'}        -0.026823      -0.609    0.57414
+    {'SI_mid'     }        {'SI_mid'     }        {'std' }          0.40173     0.23831     0.6772
+    {'SI_ortho'   }        {'SI_mid'     }        {'corr'}          0.24688     -0.6333    0.84859
+    {'SI_ortho'   }        {'SI_ortho'   }        {'std' }          0.23815    0.086151    0.65833
+
+Group: codenum:obsid (997 Levels)
+    Name1                  Name2                  Type            Estimate    Lower    Upper
+    {'(Intercept)'}        {'(Intercept)'}        {'std' }          1.9021    NaN      NaN  
+    {'SI_mid'     }        {'(Intercept)'}        {'corr'}        -0.75865    NaN      NaN  
+    {'SI_ortho'   }        {'(Intercept)'}        {'corr'}        -0.91656    NaN      NaN  
+    {'SI_mid'     }        {'SI_mid'     }        {'std' }          1.2619    NaN      NaN  
+    {'SI_ortho'   }        {'SI_mid'     }        {'corr'}         0.58359    NaN      NaN  
+    {'SI_ortho'   }        {'SI_ortho'   }        {'std' }          0.4203    NaN      NaN  
+
+Group: Error
+    Name               Estimate    Lower    Upper
+    {'Res Std'}        1.4931      NaN      NaN  
+
+dBIC = -67.9051, and BF_reduced_over_full = 556433426723403.3
+ 
+----------------------------------------------------------------------
+**********************************************************************
+----------------------------------------------------------------------
+ 
+Using model-free estimates:
+ 
+
+<strong>Linear mixed-effects model fit by ML</strong>
+
+<strong>Model information:</strong>
+    Number of observations            2988
+    Fixed effects coefficients           3
+    Random effects coefficients       5334
+    Covariance parameters               19
+
+<strong>Formula:</strong>
+    bin_scatter ~ 1 + SI + (1 + SI | obsid) + (1 + SI | codenum) + (1 + SI | codenum:obsid)
+
+<strong>Model fit statistics:</strong>
+    AIC      BIC      LogLikelihood    Deviance
+    13874    14006    -6915.1          13830   
+
+<strong>Fixed effects coefficients (95% CIs):</strong>
+    Name                   Estimate    SE          tStat     DF      pValue        Lower        Upper  
+    {'(Intercept)'}         9.9318      0.58866    16.872    2985    4.4801e-61       8.7776     11.086
+    {'SI_mid'     }        0.65217      0.10377    6.2846    2985    3.7651e-10       0.4487    0.85564
+    {'SI_ortho'   }        0.12019     0.081351    1.4774    2985       0.13967    -0.039322     0.2797
+
+<strong>Random effects covariance parameters (95% CIs):</strong>
+Group: obsid (732 Levels)
+    Name1                  Name2                  Type            Estimate    Lower     Upper
+    {'(Intercept)'}        {'(Intercept)'}        {'std' }          3.5106    3.2952    3.74 
+    {'SI_mid'     }        {'(Intercept)'}        {'corr'}         0.99817       NaN     NaN 
+    {'SI_ortho'   }        {'(Intercept)'}        {'corr'}        -0.24652       NaN     NaN 
+    {'SI_mid'     }        {'SI_mid'     }        {'std' }        0.046332       NaN     NaN 
+    {'SI_ortho'   }        {'SI_mid'     }        {'corr'}        -0.22048       NaN     NaN 
+    {'SI_ortho'   }        {'SI_ortho'   }        {'std' }         0.32052       NaN     NaN 
+
+Group: codenum (49 Levels)
+    Name1                  Name2                  Type            Estimate     Lower       Upper  
+    {'(Intercept)'}        {'(Intercept)'}        {'std' }           3.9554       3.194     4.8982
+    {'SI_mid'     }        {'(Intercept)'}        {'corr'}        -0.035878    -0.39358    0.33126
+    {'SI_ortho'   }        {'(Intercept)'}        {'corr'}         -0.20359     -0.6567    0.35753
+    {'SI_mid'     }        {'SI_mid'     }        {'std' }          0.54652     0.38875    0.76833
+    {'SI_ortho'   }        {'SI_mid'     }        {'corr'}          0.94161         NaN        NaN
+    {'SI_ortho'   }        {'SI_ortho'   }        {'std' }           0.2838     0.12266    0.65665
+
+Group: codenum:obsid (997 Levels)
+    Name1                  Name2                  Type            Estimate    Lower    Upper
+    {'(Intercept)'}        {'(Intercept)'}        {'std' }          1.9682    NaN      NaN  
+    {'SI_mid'     }        {'(Intercept)'}        {'corr'}        -0.43266    NaN      NaN  
+    {'SI_ortho'   }        {'(Intercept)'}        {'corr'}        -0.50823    NaN      NaN  
+    {'SI_mid'     }        {'SI_mid'     }        {'std' }         0.92621    NaN      NaN  
+    {'SI_ortho'   }        {'SI_mid'     }        {'corr'}         0.69177    NaN      NaN  
+    {'SI_ortho'   }        {'SI_ortho'   }        {'std' }          1.1412    NaN      NaN  
+
+Group: Error
+    Name               Estimate    Lower    Upper
+    {'Res Std'}        1.297       NaN      NaN  
+
+dBIC = -50.2615, and BF_reduced_over_full = 82062858734.3424

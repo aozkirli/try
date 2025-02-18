@@ -1,0 +1,228 @@
+close all;
+load(['..' filesep '..' filesep 'data' filesep 'datasets' filesep 'SD_ma_master_table.mat'])
+tbl.theta(tbl.theta==180) = 0;
+tbl.delta(tbl.delta==-90) = 90;
+
+toplot = tbl(strcmp(tbl.stimulus,'Orientation'),:); % tbl(tbl.theta<=180 & abs(tbl.delta)<=90 ,:);
+toplot.theta = round(toplot.theta);
+toplot.delta = round(toplot.delta);
+toplot.theta90= toplot.theta-90;
+
+lw = 3;
+
+figure('Units','normalized','Position',[0 0.15 1 .75])
+subplot(2,3,1)
+hold on;
+ll=plot([0 0],[-1 1],'k--','LineWidth',1);
+ll=plot([0 180],[0 0],'k--','LineWidth',1);
+for i = 0:179
+    [hh,pp] = ttest(toplot.error_iqr_norm(toplot.theta == i),nanmean(toplot.error_iqr_norm));
+    dd(i+1) = nanmean(toplot.error_iqr_norm(toplot.theta == i))/nanstd(toplot.error_iqr_norm(toplot.theta == i));
+    eb(i+1)=errorbar(i,nanmean(toplot.error_iqr_norm(toplot.theta == i)),nanstd(toplot.error_iqr_norm(toplot.theta == i))./sqrt(length(toplot.error_iqr_norm(toplot.theta == i))),...
+        'LineWidth',lw,'Color','b');hold on;
+end
+xlabel('θ(°)')
+ylabel('Stimulus-specific Bias (°)')
+set(gca, 'FontSize', 20);
+set(gca,'LineWidth',2)
+set(gca,'FontName','Times New Roman')
+grid on;
+box on;
+xticks([0:45:180]);
+
+subplot(2,3,6)
+xlabel('Ori-bias cohen d')
+ylabel('Bias');hold on;
+title(['r=NaN'  ', p=NaN'])
+set(gca,'FontSize',15)
+
+[abs_dd_sorted,idx]=sort(abs(dd));
+num_theta_per_bin = 36;
+thrs = abs_dd_sorted(num_theta_per_bin:num_theta_per_bin:min([length(abs_dd_sorted) num_theta_per_bin*ceil(length(abs_dd_sorted)/num_theta_per_bin+1) ]));
+color = [1 0 0].*linspace(0,1,length(thrs))';
+cc = 1;
+out_theta = [];
+for thr = thrs
+    subplot(2,3,1)
+    title(['abs(d)<=' num2str(dd(i+1)) ' in red'])
+    if thr == thrs(1)
+        card = find(abs(dd)<=thr)-1;
+        prev_card = card;
+    else
+        card = (setdiff(find(abs(dd)<=thr)-1,prev_card));
+        prev_card = find(abs(dd)<=thr)-1;
+    end
+    theseThetas = setdiff(card,out_theta);
+    thresholded_toplot = toplot(ismember(toplot.theta,theseThetas),:);
+    for i=theseThetas
+            eb(i+1).Color=color(cc,:);
+    end
+
+    set(gca, 'FontSize', 20);
+    set(gca,'LineWidth',2)
+    set(gca,'FontName','Times New Roman')
+    grid on;
+    box on;
+
+    subplot(2,3,2)
+    mv = nan(91,1);
+    idx = unique(abs(thresholded_toplot.delta))+1; idx=idx(isfinite(idx));
+    error_iqr = thresholded_toplot.error_iqr_norm;
+    error_iqr(thresholded_toplot.delta<0) = -error_iqr(thresholded_toplot.delta<0);
+    mv(idx) = grpstats(error_iqr,abs(thresholded_toplot.delta),'mean');
+    mv = [-mv(end:-1:2); mv];
+    mv = movmean(repmat(mv,3,1),31);
+    mv = mv(182:362); 
+    bias(cc) = max(mv);
+    plot(-90:90,mv,'LineWidth',lw,'Color',color(cc,:));
+    hold on
+    if cc==1
+        xlabel('Δ (°)')
+        ylabel('Serial Dependence Bias (°)')
+        set(gca, 'FontSize', 20);
+        set(gca,'LineWidth',2)
+        set(gca,'FontName','Times New Roman')
+        grid on;
+        box on;
+    end
+    subplot(2,3,3)
+    mv = nan(91,1);
+    idx = unique(abs(thresholded_toplot.delta))+1; idx=idx(isfinite(idx));
+    mv(idx) = grpstats(thresholded_toplot.error_iqr_norm,abs(thresholded_toplot.delta),'std');
+    mv = [mv(end:-1:2); mv];
+    mv = movmean(repmat(mv,3,1),31);
+    mv = mv(182:362); 
+    plot(-90:90,mv,'LineWidth',lw,'Color',color(cc,:));
+    hold on
+    sup(cc) = mv(end)-mv(91);
+    if cc==1
+        xlabel('Δ (°)')
+        ylabel('Error Scatter (°)')
+        set(gca, 'FontSize', 20);
+        set(gca,'LineWidth',2)
+        set(gca,'FontName','Times New Roman')
+        grid on;
+        box on;
+    end
+    
+
+    if cc>1
+        subplot(2,3,5)
+        sc1.XData = [sc1.XData mean(abs_dd(abs_dd>thrs(cc-1) & abs_dd<=thrs(cc)))];
+        sc1.YData = sup(1:cc);
+        ll1.XData = sc1.XData;
+        ll1.YData = polyval(polyfit(sc1.XData,sup(1:cc),1),sc1.XData);
+        subplot(2,3,6)
+        sc2.XData = sc1.XData;
+        sc2.YData = bias(1:cc);
+        ll2.XData = sc1.XData;
+        ll2.YData = polyval(polyfit(sc1.XData,bias(1:cc),1),sc1.XData);
+    else
+        subplot(2,3,5)
+        abs_dd = abs(dd);
+        xx=mean(abs_dd(abs_dd<=thrs(cc)));
+        sc1=scatter(xx,sup(cc),'filled','k');hold on;
+        ll1=plot(thrs(1:cc),polyval(polyfit(xx,sup(1:cc),1),thrs(1:cc)));ll1.Color='r';ll1.LineWidth=lw;
+        xlabel('Stimulus-specific Bias Effect Size (d)')
+        ylabel('Superiority (ortho-iso) (°)')        
+        set(gca, 'FontSize', 20);
+        set(gca,'LineWidth',2)
+        set(gca,'FontName','Times New Roman')
+        grid on;
+        box on;
+
+        subplot(2,3,6)
+        sc2=scatter(xx,bias(cc),'filled','k');hold on;
+        ll2=plot(sc2.XData,polyval(polyfit(sc2.XData,bias(1:cc),1),sc2.XData));ll2.Color='r';ll2.LineWidth=lw;
+        xlabel('Stimulus-specific Bias Effect Size (d)')
+        ylabel('Serial Dependence Bias Peak (°)');hold on;
+        set(gca, 'FontSize', 20);
+        set(gca,'LineWidth',2)
+        set(gca,'FontName','Times New Roman')
+        grid on;
+        box on;
+    end
+    subplot(2,3,5)
+    [rr,pp] = corr(thrs(1:cc)',sup(1:cc)');
+    legend(ll1,['r=' num2str(round(rr,2)) ', p=' num2str(round(pp,3))],'Location','best')
+    
+    subplot(2,3,6)
+    [rr,pp] = corr(thrs(1:cc)',bias(1:cc)');
+    legend(ll2,['r=' num2str(round(rr,2)) ', p=' num2str(round(pp,3))],'Location','best')
+
+    cc= cc+1;
+    pause(.0001)
+end
+%%
+load(['..' filesep '..' filesep 'data' filesep 'datasets' filesep 'SD_ma_master_table.mat'])
+tbl.theta(tbl.theta==180) = 0;
+tbl.delta(tbl.delta==-90) = 90;
+toplot = tbl(strcmp(tbl.stimulus,'Orientation'),:);
+clear bias_all_theta sup_all_theta ori_bias ori_bias_peak
+num_theta_per_bin = 18;
+bins = linspace(0,179,num_theta_per_bin+1);
+for i  = 1:length(bins)-1
+    thresholded_toplot = toplot(ismember(toplot.theta,round([bins(i):ceil(bins(i+1))])),:);
+    mv = nan(91,1);
+    idx = unique(abs(thresholded_toplot.delta))+1; idx=idx(isfinite(idx));
+    mv(idx) = grpstats(thresholded_toplot.error_iqr_norm,abs(thresholded_toplot.delta),'std');
+    mv = [mv(end:-1:2); mv];
+    mv = movmean(repmat(mv,3,1),31);
+    mv = mv(182:362); 
+    bias_all_theta(i) = max(mv);
+
+    mv = nan(91,1);
+    idx = unique(abs(thresholded_toplot.delta))+1; idx=idx(isfinite(idx));
+    mv(idx) = grpstats(thresholded_toplot.error_iqr_norm,abs(thresholded_toplot.delta),'std');
+    mv = [mv(end:-1:2); mv];
+    mv = movmean(repmat(mv,3,1),31);
+    mv = mv(182:362); 
+    hold on
+    sup_all_theta(i) = mv(end)-mv(91);
+
+    ori_bias(i) = (nanmean(thresholded_toplot.error_iqr_norm)-nanmean(toplot.error_iqr_norm));
+    ori_bias_peak(i) = abs(nanmean(thresholded_toplot.error_iqr_norm)-nanmean(toplot.error_iqr_norm));
+end
+% 
+% bias_all_theta = movmean(bias_all_theta,21);
+% ori_bias_peak = abs(movmean(ori_bias,21));
+% sup_all_theta = movmean(sup_all_theta,21);
+
+figure('Units','normalized','Position',[0 0.15 .8 .3])
+subplot(151)
+scatter(round(bins(1:end-1)+180/num_theta_per_bin/2),ori_bias,'filled','k');hold on;
+% ll=lsline;ll.LineWidth=1.5;ll.Color='r';
+xlabel('Theta');
+ylabel('Ori bias');
+set(gca,'FontSize',15)
+subplot(152)
+scatter(round(bins(1:end-1)+180/num_theta_per_bin/2),bias_all_theta,'filled','k');hold on;
+% ll=lsline;ll.LineWidth=1.5;ll.Color='r';
+xlabel('Theta');
+ylabel('Serial Dependence Bias peak');
+xlim([0 179])
+set(gca,'FontSize',15)
+
+subplot(153)
+scatter(round(bins(1:end-1)+180/num_theta_per_bin/2),sup_all_theta,'filled','k');hold on;
+% ll=lsline;ll.LineWidth=1.5;ll.Color='r';
+xlabel('Theta');
+ylabel('Superiority (ortho-iso)');
+xlim([0 179])
+set(gca,'FontSize',15)
+
+subplot(154)
+scatter(bias_all_theta,sup_all_theta,'filled','k');hold on;
+ll=lsline;ll.LineWidth=1.5;ll.Color='r';
+xlabel('Serial Dependence Bias peak');
+ylabel('Superiority (ortho-iso)');
+set(gca,'FontSize',15)
+title(['r=' num2str(corr(bias_all_theta',sup_all_theta'))])
+
+subplot(155)
+scatter(bias_all_theta,ori_bias_peak,'filled','k');hold on;
+ll=lsline;ll.LineWidth=1.5;ll.Color='r';
+xlabel('Serial Dependence Bias peak');
+ylabel('Ori bias peak');
+title(['r=' num2str(corr(bias_all_theta',ori_bias_peak'))])
+set(gca,'FontSize',15)

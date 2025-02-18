@@ -1,0 +1,9 @@
+Gallagher, G. (2023). Uncertainty In Serial Dependence (Doctoral dissertation, University of Bristol).
+
+https://doi.org/10.1167/jov.22.1.6
+
+Data available at: https://doi.org/10.5523/bris.3lf3skkfzen4a2ajz1l6bv05gv
+
+
+Experiment 1 (only one)
+Condition(s) to include: All, code for uncertainty level

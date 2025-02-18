@@ -13,8 +13,8 @@ jobs:
     - name: Checkout Repository
       uses: actions/checkout@v4  # Fetch repo contents
 
-    - name: Set Up MATLAB
-      uses: matlab-actions/setup-matlab@v1  # MATLAB setup
+    - name: Set Up MATLAB (Latest Version)
+      uses: matlab-actions/setup-matlab@v2  # Use latest MATLAB setup
 
     - name: Track Existing Files Before Running MATLAB
       run: |
@@ -22,11 +22,11 @@ jobs:
         find . -type f -name "*.mat" -o -name "*.csv" > before_run.txt
 
     - name: Run MATLAB Analysis
-      uses: matlab-actions/run-command@v1
+      uses: matlab-actions/run-command@v2  # Use latest MATLAB action
       with:
         command: |
           addpath(genpath(pwd)); % Add all subfolders
-          SD_main_analysis;  % Replace with your actual main function name
+          main_function;  % Replace with your actual main function name
 
     - name: Identify Newly Created Files
       run: |

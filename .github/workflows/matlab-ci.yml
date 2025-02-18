@@ -1,32 +1,42 @@
-name: Run MATLAB Tests
+name: MATLAB Data Reanalysis
 
 on:
   push:
     branches:
-      - main
-  pull_request:
-    branches:
-      - main
+      - '**'  # Runs on all branches
 
 jobs:
-  test:
+  run-matlab:
     runs-on: ubuntu-latest
 
     steps:
     - name: Checkout Repository
-      uses: actions/checkout@v4  # Gets your repo files
+      uses: actions/checkout@v4  # Fetch repo contents
 
     - name: Set Up MATLAB
-      uses: matlab-actions/setup-matlab@v1  # MATLAB GitHub Action
+      uses: matlab-actions/setup-matlab@v1  # MATLAB setup
 
-    - name: Run MATLAB Script
+    - name: Track Existing Files Before Running MATLAB
+      run: |
+        mkdir -p output
+        find . -type f -name "*.mat" -o -name "*.csv" > before_run.txt
+
+    - name: Run MATLAB Analysis
       uses: matlab-actions/run-command@v1
       with:
         command: |
-          results = runtests;
-          assert(all([results.Passed]), 'Some tests failed.');
+          addpath(genpath(pwd)); % Add all subfolders
+          SD_main_analysis;  % Replace with your actual main function name
 
-    - name: Run MATLAB Script (if needed)
-      uses: matlab-actions/run-command@v1
+    - name: Identify Newly Created Files
+      run: |
+        find . -type f -name "*.mat" -o -name "*.csv" > after_run.txt
+        comm -13 before_run.txt after_run.txt > new_files.txt
+        mkdir -p output
+        cat new_files.txt | xargs -I {} mv "{}" output/ || true
+
+    - name: Upload Only Newly Created Files
+      uses: actions/upload-artifact@v3
       with:
-        command: run('your_script.m')  # Replace with your MATLAB script
+        name: MATLAB-New-Results
+        path: output/

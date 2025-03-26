@@ -6,7 +6,7 @@ clear all; close all; clc
 nanunique = @(x) unique(x(~isnan(x)));
 
 % Get the full path of the current script
-scriptPath = mfilename('fullpath');
+[scriptPath,~] = fileparts(mfilename('fullpath'));
 
 % Extract directory path of the current script
 [currentDir, ~, ~] = fileparts(scriptPath);
@@ -15,7 +15,7 @@ scriptPath = mfilename('fullpath');
 cd(currentDir)
 
 % Change to 'studies' directory
-cd(['..' filesep '..' filesep 'data' filesep 'studies'])
+cd([ '..' filesep 'data' filesep 'studies'])
 
 % List all .mat files in the directory
 matfiles = dir('*.mat'); 
@@ -285,3 +285,4 @@ tbl.theta(tbl.theta==180) = 0; % as 0 and 180 are the same in terms of orientati
 tbl.delta(tbl.delta==-90) = 90; % as 90 and -90 are the same in terms of orientation
 clear master
 save SD_ma_master_table.mat tbl
+cd(scriptPath)

@@ -1,12 +1,12 @@
 clc  % Clear command window
 
 % Get the full path of the current script
-scriptPath = mfilename('fullpath');
+[scriptPath, ~] = fileparts(mfilename('fullpath'));
 
 % Extract directory path of the current script
 [currentDir, ~, ~] = fileparts(scriptPath);
 
-currentDir = [currentDir filesep '..' filesep '..' filesep 'data']
+currentDir = [currentDir filesep '..' filesep 'data']
 % Navigate to the current directory
 cd(currentDir)
 
@@ -93,3 +93,4 @@ for k = 1:size(summary, 1)
     % Save the table as a .csv file
     writetable(tbl, [rename(1:end-4) '.csv'], 'delimiter', ';')
 end
+cd(scriptPath)

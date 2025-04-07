@@ -8,7 +8,9 @@ on:
 jobs:
   run-python:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: write   # <--- Grant write permission to the contents
+      
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4  # Fetch repo contents

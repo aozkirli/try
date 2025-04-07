@@ -77,6 +77,7 @@ for i, csvfile in enumerate(study_list, start=1):
 
     # Add 'stimtype' (flag for 'Orientation') and 'studynum'
     # (Assuming tbl['stimulus'] is string; convert to lowercase for comparison)
+    print("DataFrame columns:", tbl.columns.tolist())
     tbl['stimtype'] = tbl['stimulus'].astype(str).str.lower() == 'orientation'
     tbl['studynum'] = i
 

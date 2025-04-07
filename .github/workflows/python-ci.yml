@@ -12,11 +12,13 @@ jobs:
     steps:
     - name: Checkout Repository
       uses: actions/checkout@v4  # Fetch repo contents
-
+      with:
+        persist-credentials: true
+        
     - name: Set Up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.x'  # Replace with your required Python version
+        python-version: '3.11.5'  # Replace with your required Python version
 
     - name: Install Dependencies
       run: |
@@ -25,6 +27,14 @@ jobs:
 
     - name: Run Python Analysis
       run: |
-        python main_function.py  # Replace with your actual Python script name
+        python main_function.py  
 
-
+    - name: Commit Generated Files
+      uses: EndBug/add-and-commit@v9
+      with:
+        add: "/home/runner/work/try/try/data/datasets/*.csv /home/runner/work/try/try/data/studies/*.csv"  
+        message: "Update generated CSV files"
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    
+    

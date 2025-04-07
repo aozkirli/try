@@ -23,18 +23,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
 
-    - name: Track Existing Files Before Running Python
-      run: |
-        mkdir -p output
-        find . -type f -name "*.mat" -o -name "*.csv" > before_run.txt
-
     - name: Run Python Analysis
       run: |
         python main_function.py  # Replace with your actual Python script name
-
-    - name: Identify Newly Created Files
-      run: |
-        find . -type f -name "*.mat" -o -name "*.csv" > after_run.txt
-        comm -13 before_run.txt after_run.txt > new_files.txt
-        mkdir -p output
-        cat new_files.txt | xargs -I {} mv "{}" output/ || true

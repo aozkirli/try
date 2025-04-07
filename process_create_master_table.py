@@ -2,7 +2,6 @@ import os
 import glob
 import numpy as np
 import pandas as pd
-from scipy.io import loadmat, savemat
 
 # =============================================================================
 # Helper functions
@@ -284,10 +283,6 @@ master.to_csv('SD_ma_master_table.csv', sep=';', index=False)
 tbl = master.copy()
 tbl.loc[tbl['theta'] == 180, 'theta'] = 0
 tbl.loc[tbl['delta'] == -90, 'delta'] = 90
-
-# Save as MATLAB .mat file (convert DataFrame to dictionary of lists)
-mat_dict = {col: tbl[col].values for col in tbl.columns}
-savemat('SD_ma_master_table.mat', mat_dict)
 
 # Return to the original script directory
 os.chdir(script_dir)

@@ -73,6 +73,8 @@ for i, csvfile in enumerate(study_list, start=1):
 
     # Keep only standardized variables that exist in the DataFrame
     cols_to_keep = [v for v in variables if v in tbl.columns]
+    print(cols_to_keep)
+    print(tbl.columns)
     tbl = tbl[cols_to_keep].copy()
 
     # Add 'stimtype' (flag for 'Orientation') and 'studynum'

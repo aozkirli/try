@@ -26,3 +26,19 @@ jobs:
     - name: Run Python Analysis
       run: |
         python main_function.py  # Replace with your actual Python script name
+
+    - name: List Files After Python Run
+      run: |
+        echo "Listing all files in the repository:"
+        ls -laR .
+
+    # Commit new CSV and MAT files if any are generated
+    - name: Commit Generated Files
+      uses: EndBug/add-and-commit@v9
+      with:
+        author_name: GitHub Action
+        author_email: action@github.com
+        message: "Update generated CSV/MAT files"
+        add: "output/*.csv"  # Adjust this path as needed
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -35,6 +35,7 @@ print("Experiments Directory:", os.getcwd())
 
 # List all CSV files in the 'experiments' folder.
 csv_files = glob.glob("*.csv")
+csv_files = sorted(csv_files)  # sort if needed
 csv_files = [str(f) for f in csv_files]
 
 # Extract experiment names from file names using a regex.

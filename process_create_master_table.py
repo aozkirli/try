@@ -42,6 +42,7 @@ print("Current studies directory:", os.getcwd())
 # List all .mat files in the directory
 csvfiles = glob.glob("*.csv")
 csvfiles = sorted(csvfiles)  # sort if needed
+print(csvfiles)
 
 # For this translation, we assume each .mat file corresponds to one study.
 # (In MATLAB, study_list = unique(cellstr(csvfiles)); so here we simply use the file names.)
@@ -73,8 +74,6 @@ for i, csvfile in enumerate(study_list, start=1):
 
     # Keep only standardized variables that exist in the DataFrame
     cols_to_keep = [v for v in variables if v in tbl.columns]
-    print(cols_to_keep)
-    print(tbl.columns)
     tbl = tbl[cols_to_keep].copy()
 
     # Add 'stimtype' (flag for 'Orientation') and 'studynum'

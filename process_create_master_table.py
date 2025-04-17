@@ -170,9 +170,6 @@ datasets_path = os.path.abspath(os.path.join(script_dir, 'data', 'datasets'))
 os.chdir(datasets_path)
 print("Saving final datasets to:", os.getcwd())
 
-# Save as CSV (using semicolon as delimiter)
-master_tbl.to_csv('beforePreproc.csv', sep=';', float_format='%.16f', index=False)
-
 # =============================================================================
 # Recoding observer IDs and handling dataset specifics
 # =============================================================================

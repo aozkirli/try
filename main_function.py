@@ -1,6 +1,9 @@
 import pandas as pd
 import process_combine_experiments
 import process_create_master_table
+import estimate_polynomial_mvav
+
 process_combine_experiments
 process_create_master_table
+estimate_polynomial_mvav
 

@@ -273,7 +273,7 @@ for s in studies_unique:
                 # Remove outliers based on 3 standard deviations
                 mean_val = np.nanmean(errorsd)
                 std_val = np.nanstd(errorsd)
-                out_sd = (errorsd.abs() >  mean_val + 3 * std_val) | (errorsd.abs() <  mean_val - 3 * std_val)
+                out_sd = (errorsd >  mean_val + 3 * std_val) | (errorsd <  mean_val - 3 * std_val)
                 errorsd[out_sd] = np.nan
                 
                 # Remove outliers based on reaction time (> 10s)

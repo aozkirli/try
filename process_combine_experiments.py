@@ -3,8 +3,10 @@ import glob
 import re
 import shutil
 from collections import Counter
-
+import numpy as np
 import pandas as pd
+np.set_printoptions(precision=16, floatmode='maxprec_equal')
+pd.options.display.precision = 16
 
 # --- Main Script ---
 
@@ -64,6 +66,8 @@ for k, target_name in enumerate(unique_expnames, start=1):
         filename = csv_files[idx]
         print(f"Processing file: {filename}")
         df = pd.read_csv(filename,delimiter=';')
+        num_cols = df.select_dtypes(include='number').columns
+        df[num_cols] = df[num_cols].astype(np.float64)
         df['expnum'] = i  # Add experiment number column.
         df_accum = pd.concat([df_accum, df], ignore_index=False)
 
@@ -84,7 +88,7 @@ for k, target_name in enumerate(unique_expnames, start=1):
     
     # Save the cumulative DataFrame as a CSV file with ';' as the delimiter.
     csv_save_path = os.path.join(studies_path, rename)
-    df_accum.to_csv(csv_save_path, sep=';', index=False)
+    df_accum.to_csv(csv_save_path, sep=';', float_format='%.16f', index=False)
     print("Saved:", csv_save_path)  
 
 # Return to the original script directory.

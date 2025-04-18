@@ -35,8 +35,9 @@ jobs:
     - name: Commit Generated Files
       uses: EndBug/add-and-commit@v9
       with:
-        add: "/home/runner/work/try/try/data/datasets/*.csv /home/runner/work/try/try/data/studies/*.csv"  
-        message: "Update generated CSV files"
+        add: "/home/runner/work/try/try/data/datasets /home/runner/work/try/try/data/studies /home/runner/work/try/try/*.csv /home/runner/work/try/try/figures /home/runner/work/try/try/tables"  
+        message: "Updated the results: csv files, figures and tables"
+        
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     

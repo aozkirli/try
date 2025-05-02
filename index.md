@@ -12,8 +12,8 @@ Welcome to the **Rethinking serial dependence: A large-scale analysis of its eff
 
 The table below is generated from `tables/summary_studies.csv`:
 
-[View the datasets analyzed](tables/summary_studies.pdf)
+![Figure 1: Response scatter as a function of feature distance](tables/summary_studies.pdf)
 
 ## Figures Gallery
 
-![Figure 1: Response scatter as a function of feature distance](figures/main_results_polyfit.png)
+![Figure 2: Response scatter as a function of feature distance](figures/main_results_polyfit.png)

@@ -34,6 +34,8 @@ The table below is generated from `tables/summary_studies.csv`:
 </script>
 ```
 
+![Table 1: Analyzed datasets](tables/summary_studies.csv)
+
 ## Figures Gallery
 
-![Figure 1: Example Description](figures/main_results_polyfit.png)
+![Figure 1: Response scatter as a function of feature distance](figures/main_results_polyfit.png)

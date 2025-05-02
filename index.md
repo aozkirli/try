@@ -12,14 +12,7 @@ Welcome to the **Rethinking serial dependence: A large-scale analysis of its eff
 
 The table below is generated from `tables/summary_studies.csv`:
 
-```{python}
-import pandas as pd
-from tabulate import tabulate
-import IPython.display as d
-df = pd.read_csv("tables/summary_studies.csv",delimiter=';')
-md = tabulate(df, headers='keys', tablefmt='pipe',showindex=False)
-d.Markdown(md)
-```
+[View the datasets analyzed](tables/summary_studies.csv)
 
 ## Figures Gallery
 

@@ -22,7 +22,7 @@ The table below is generated from `tables/summary_studies.csv`:
       const rows = text.trim().split('\n');
       rows.forEach((row, rowIndex) => {
         const tr = document.createElement('tr');
-        row.split(',').forEach(cell => {
+        row.split(';').forEach(cell => {
           const cellElem = document.createElement(rowIndex === 0 ? 'th' : 'td');
           cellElem.textContent = cell;
           tr.appendChild(cellElem);

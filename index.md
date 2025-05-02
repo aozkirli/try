@@ -12,7 +12,7 @@ Welcome to the **Rethinking serial dependence: A large-scale analysis of its eff
 
 The table below is generated from `tables/summary_studies.csv`:
 
-![Figure 1: Response scatter as a function of feature distance](tables/summary_studies.pdf)
+![Figure 1: Response scatter as a function of feature distance](tables/summary_studies.png)
 
 ## Figures Gallery
 

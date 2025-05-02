@@ -1,11 +1,12 @@
 ---
-title: "Project Title"
+title: "Rethinking serial dependence: A large-scale analysis of its effects on the variability of perceptual estimates  "
 layout: default
 ---
 
-# Project Title
+# Rethinking serial dependence: A large-scale analysis of its effects on the variability of perceptual estimates  
 
-Welcome to the **Project Title** repository. This project processes user-uploaded datasets through a suite of MATLAB functions and automatically updates result figures and summaries.
+
+Welcome to the **Rethinking serial dependence: A large-scale analysis of its effects on the variability of perceptual estimates** repository. This project allows users to analyze the effects of serial dependence on the response variability in adjustment tasks
 
 ## Main Results (PDF)
 
@@ -39,8 +40,4 @@ The table below is generated from `tables/summary_studies.csv`:
 
 ## Figures Gallery
 
-![Figure 1: Example Description](figures/figure1.png)
-
-## Automating Updates
-
-See `.github/workflows/update-index.yml` and `scripts/generate_index.py` for details on automatically regenerating this file when figures or tables change.
+![Figure 1: Example Description](figures/main_results_polyfit.png)

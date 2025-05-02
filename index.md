@@ -1,7 +1,3 @@
----
-title: "Rethinking serial dependence: A large-scale analysis of its effects on the variability of perceptual estimates  "
-layout: default
----
 
 # Rethinking serial dependence: A large-scale analysis of its effects on the variability of perceptual estimates  
 
